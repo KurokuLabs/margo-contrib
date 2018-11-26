@@ -6,6 +6,7 @@ import (
 	"go/printer"
 	"go/token"
 	"margo.sh/golang"
+	"margo.sh/htm"
 	"margo.sh/mg"
 )
 
@@ -35,7 +36,7 @@ func (*R) Reduce(mx *mg.Ctx) *mg.State {
 			buf.WriteString(name)
 			name = buf.String()
 		}
-		return mx.AddHUD("In Func", name)
+		return mx.AddHUD(htm.Text("In Func"), htm.Text(name))
 	}
 	return mx.State
 }
